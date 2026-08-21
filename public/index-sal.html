@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===================== SEO ===================== -->
+<title>SAL Personal Training | Estúdio Privado de Treino em Espinho</title>
+<meta name="description" content="Estúdio de Personal Training privado em Espinho. Sem filas, sem multidões, sem esperar por equipamento — só tu e o teu treinador. Marca a tua sessão.">
+<meta name="keywords" content="Personal Training Espinho, ginásio privado, treino personalizado, SAL Personal Training">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.salpersonaltraining.pt/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="business.business">
+<meta property="og:title" content="SAL Personal Training | Estúdio Privado em Espinho">
+<meta property="og:description" content="Treino personalizado sem filas nem multidões. Acompanhamento exclusivo, sessão a sessão.">
+<meta property="og:locale" content="pt_PT">
+<meta property="og:url" content="https://www.salpersonaltraining.pt/">
+
+<link rel="icon" href="data:,">
+
+<!-- Fontes: Oswald (display, condensada — energia e disciplina) / Inter (leitura) / IBM Plex Mono (dados, horários — leitura tipo cronómetro) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   TOKENS
+   Paleta estritamente preto/branco (pedido do cliente) —
+   a ausência de cor é a decisão estética: um espaço sério,
+   sem ruído, tal como o estúdio que vende.
+   ========================================================= */
+:root{
+  --black:      #0b0b0c;
+  --black-soft: #151516;
+  --white:      #faf9f7;
+  --grey-100:   #f0efec;
+  --grey-300:   #d8d6d1;
+  --grey-500:   #8a8886;
+  --grey-700:   #4a4948;
+  --line-on-black: rgba(250,249,247,0.14);
+  --line-on-white: rgba(11,11,12,0.12);
+
+  --font-display: 'Oswald', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+
+  --container: 1180px;
+  --ease: cubic-bezier(.22,.8,.28,1);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family: var(--font-body);
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+ul{ list-style:none; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+.wrap{ max-width: var(--container); margin:0 auto; padding:0 32px; }
+@media (max-width:640px){ .wrap{ padding:0 22px; } }
+
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grey-500);
+  display:flex; align-items:center; gap:10px;
+  margin-bottom: 18px;
+}
+.eyebrow::before{
+  content:"";
+  width: 22px; height:1px;
+  background: currentColor;
+}
+.eyebrow--on-black{ color: var(--grey-300); }
+
+h1,h2,h3{
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-weight:600;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+h2{ font-size: clamp(30px, 4.2vw, 46px); }
+h3{ font-size: 20px; }
+p{ line-height:1.7; color: var(--grey-700); }
+.section-head{ max-width:640px; margin-bottom:56px; }
+.section-head p{ margin-top:16px; font-size:17px; }
+
+section{ padding: 108px 0; }
+@media (max-width:768px){ section{ padding: 76px 0; } }
+
+/* ---------- botões ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding: 15px 28px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border:1px solid transparent;
+  transition: transform .35s var(--ease), background .3s, color .3s, border-color .3s;
+  white-space: nowrap;
+}
+.btn:hover{ transform: translateY(-2px); }
+.btn-primary{ background: var(--white); color: var(--black); }
+.btn-primary:hover{ background: var(--black-soft); color: var(--white); box-shadow: inset 0 0 0 1px var(--white); }
+.btn-outline{ border-color: var(--line-on-black); color: var(--white); }
+.btn-outline:hover{ background: rgba(250,249,247,0.08); }
+.btn-dark{ background: var(--black); color: var(--white); }
+.btn-dark:hover{ background: var(--black-soft); }
+.btn-line{ border-color: var(--line-on-white); color: var(--black); }
+.btn-line:hover{ background: var(--black); color: var(--white); border-color: var(--black); }
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+header{
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  padding: 22px 0;
+  transition: background .4s var(--ease), padding .4s var(--ease), border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+header.scrolled{
+  background: rgba(11,11,12,0.92);
+  backdrop-filter: blur(10px);
+  padding: 14px 0;
+  border-color: var(--line-on-black);
+}
+header .wrap{ display:flex; align-items:center; justify-content:space-between; }
+.logo{
+  font-family: var(--font-display);
+  font-size: 21px;
+  letter-spacing: 0.14em;
+  color: var(--white);
+}
+.logo span{ color: var(--grey-500); }
+nav ul{ display:flex; gap:34px; }
+nav a{
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--grey-300);
+  transition: color .25s;
+  position:relative;
+}
+nav a::after{
+  content:""; position:absolute; left:0; bottom:-6px; width:0; height:1px;
+  background: var(--white); transition: width .3s var(--ease);
+}
+nav a:hover{ color: var(--white); }
+nav a:hover::after{ width:100%; }
+.header-actions{ display:flex; align-items:center; gap:16px; }
+.nav-toggle{ display:none; }
+
+@media (max-width: 900px){
+  nav{ position:fixed; inset:0; top:0; background: var(--black); display:flex; align-items:center; justify-content:center;
+       opacity:0; pointer-events:none; transition: opacity .35s; }
+  nav.open{ opacity:1; pointer-events:all; }
+  nav ul{ flex-direction:column; text-align:center; gap:30px; }
+  nav a{ font-size:16px; }
+  .header-actions .btn-primary{ padding:11px 18px; font-size:12px; }
+  .nav-toggle{
+    display:flex; flex-direction:column; gap:5px; width:26px; z-index:200; position:relative;
+  }
+  .nav-toggle span{ height:1px; background: var(--white); width:100%; transition: transform .3s, opacity .3s; }
+  .nav-toggle.open span:nth-child(1){ transform: translateY(6px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2){ opacity:0; }
+  .nav-toggle.open span:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{
+  background: var(--black);
+  color: var(--white);
+  min-height: 100svh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding-top: 120px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  /* textura muito subtil — grão, evita o preto plano */
+  content:"";
+  position:absolute; inset:0;
+  background-image: radial-gradient(rgba(250,249,247,0.05) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(ellipse at 70% 30%, black, transparent 70%);
+  pointer-events:none;
+}
+.hero .wrap{ position:relative; z-index:2; }
+.hero-kicker{
+  font-family: var(--font-mono); font-size:13px; letter-spacing:0.2em; text-transform:uppercase;
+  color: var(--grey-300); margin-bottom:26px; opacity:0; animation: rise .8s var(--ease) .15s forwards;
+}
+.hero h1{
+  font-size: clamp(44px, 8vw, 96px);
+  line-height: 1.18;
+  color: var(--white);
+  overflow:hidden;
+}
+.hero h1 .line{ display:block; overflow:hidden; padding-top:0.12em; margin-top:-0.12em; }
+.hero h1 span{
+  display:block; transform: translateY(110%); animation: rise-line .9s var(--ease) forwards;
+}
+.hero h1 .line:nth-child(1) span{ animation-delay: .25s; }
+.hero h1 .line:nth-child(2) span{ animation-delay: .38s; }
+.hero h1 .line:nth-child(3) span{ animation-delay: .51s; color: var(--grey-500); }
+
+.hero-sub{
+  margin-top:30px; max-width:520px;
+  color: var(--grey-300); font-size:17px; line-height:1.75;
+  opacity:0; animation: rise .8s var(--ease) .75s forwards;
+}
+.hero-actions{ margin-top:44px; display:flex; gap:16px; flex-wrap:wrap;
+  opacity:0; animation: rise .8s var(--ease) .9s forwards; }
+
+.hero-foot{
+  margin-top:96px; padding-top:26px; border-top:1px solid var(--line-on-black);
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+  font-family: var(--font-mono); font-size:12px; color: var(--grey-500); letter-spacing:0.04em;
+  opacity:0; animation: rise .8s var(--ease) 1.05s forwards;
+}
+.hero-foot .dot{ color: var(--white); }
+.scroll-cue{ display:flex; align-items:center; gap:8px; }
+.scroll-cue i{ width:1px; height:22px; background: var(--grey-500); position:relative; overflow:hidden; display:block; }
+.scroll-cue i::after{ content:""; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--white); animation: scrollcue 1.8s ease-in-out infinite; }
+
+@keyframes rise{ to{ opacity:1; } }
+@keyframes rise-line{ to{ transform: translateY(0); } }
+@keyframes scrollcue{ 0%{ top:-100%; } 60%{ top:100%; } 100%{ top:100%; } }
+
+/* =========================================================
+   SOBRE
+   ========================================================= */
+.sobre .wrap{ display:grid; grid-template-columns: 1fr 1.1fr; gap:80px; align-items:start; }
+@media (max-width:860px){ .sobre .wrap{ grid-template-columns:1fr; gap:36px; } }
+.sobre-text p + p{ margin-top:18px; }
+.sobre-figures{ display:flex; gap:0; margin-top:44px; border-top:1px solid var(--line-on-white); padding-top:26px; }
+.figure{ flex:1; padding-right:24px; }
+.figure b{ display:block; font-family:var(--font-display); font-size:34px; }
+.figure span{ font-family:var(--font-mono); font-size:12px; color:var(--grey-500); text-transform:uppercase; letter-spacing:0.05em; }
+
+/* =========================================================
+   SERVIÇOS
+   ========================================================= */
+.servicos{ background: var(--grey-100); }
+.serv-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: var(--line-on-white); border:1px solid var(--line-on-white); }
+@media (max-width:820px){ .serv-grid{ grid-template-columns:1fr; } }
+.serv-card{
+  background: var(--grey-100); padding: 44px 38px; transition: background .4s var(--ease);
+  position:relative;
+}
+.serv-card:hover{ background: var(--white); }
+.serv-num{ font-family:var(--font-mono); font-size:12px; color:var(--grey-500); }
+.serv-card h3{ margin: 22px 0 14px; }
+.serv-card p{ font-size:15px; }
+
+/* =========================================================
+   PORQUÊ (banda preta) + assinatura visual
+   ========================================================= */
+.porque{ background: var(--black); color:var(--white); }
+.porque .section-head p{ color: var(--grey-300); }
+.porque-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:70px; align-items:center; }
+@media (max-width:900px){ .porque-grid{ grid-template-columns:1fr; gap:56px; } }
+.porque-list{ display:flex; flex-direction:column; gap:0; }
+.porque-item{ padding:24px 0; border-top:1px solid var(--line-on-black); display:flex; gap:20px; align-items:flex-start; }
+.porque-item:last-child{ border-bottom:1px solid var(--line-on-black); }
+.porque-item svg{ flex-shrink:0; margin-top:3px; }
+.porque-item h3{ font-size:17px; margin-bottom:6px; }
+.porque-item p{ color: var(--grey-300); font-size:14.5px; }
+
+/* --- assinatura: grelha de pontos, multidão -> 2 pessoas --- */
+.signature{ display:flex; flex-direction:column; align-items:center; }
+.dotfield{
+  width:100%; max-width:340px; aspect-ratio:1/1;
+  display:grid; grid-template-columns: repeat(7,1fr); grid-template-rows: repeat(7,1fr);
+  gap: 10px; place-items:center;
+}
+.dotfield .dot{
+  width:9px; height:9px; border-radius:50%;
+  background: var(--grey-500);
+  opacity:1; transform:scale(1);
+  transition: opacity .7s var(--ease), transform .7s var(--ease), background .7s var(--ease);
+}
+.dotfield.cleared .dot{ opacity:0; transform:scale(0.3); }
+.dotfield.cleared .dot.keep{
+  opacity:1; transform:scale(1.9);
+  background: var(--white);
+}
+.signature-caption{
+  margin-top:30px; display:flex; gap:36px; font-family:var(--font-mono); font-size:12px;
+  color:var(--grey-500); text-transform:uppercase; letter-spacing:0.06em;
+  opacity:0; transition: opacity .6s var(--ease) .5s;
+}
+.signature-caption.show{ opacity:1; }
+.signature-caption b{ color:var(--white); font-weight:500; }
+.signature-note{ margin-top:16px; font-size:13px; color:var(--grey-500); text-align:center; max-width:280px; }
+
+/* =========================================================
+   TESTEMUNHOS
+   ========================================================= */
+.testemunhos{ background: var(--grey-100); }
+.test-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:40px; }
+@media (max-width:860px){ .test-grid{ grid-template-columns:1fr; gap:32px; } }
+.test-card{ display:flex; flex-direction:column; }
+.test-mark{ font-family:var(--font-display); font-size:44px; line-height:1; color:var(--grey-300); margin-bottom:6px; }
+.test-card p{ font-size:15.5px; color:var(--black); }
+.test-author{ margin-top:20px; font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:0.05em; color:var(--grey-500); }
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+.faq-list{ max-width: 760px; }
+.faq-item{ border-top:1px solid var(--line-on-white); }
+.faq-item:last-child{ border-bottom:1px solid var(--line-on-white); }
+.faq-q{
+  width:100%; display:flex; justify-content:space-between; align-items:center;
+  padding: 26px 4px; text-align:left; font-family:var(--font-display); font-size:18px; text-transform:none; letter-spacing:0;
+  color: var(--black);
+}
+.faq-q .plus{ position:relative; width:16px; height:16px; flex-shrink:0; margin-left:20px; }
+.faq-q .plus::before, .faq-q .plus::after{ content:""; position:absolute; background: var(--black); transition: transform .35s var(--ease); }
+.faq-q .plus::before{ top:7px; left:0; width:16px; height:1px; }
+.faq-q .plus::after{ left:7px; top:0; width:1px; height:16px; }
+.faq-item.open .plus::after{ transform: rotate(90deg) translateX(0); opacity:0; }
+.faq-a{ max-height:0; overflow:hidden; transition: max-height .5s var(--ease); }
+.faq-a p{ padding: 0 4px 26px; font-size:15px; max-width:600px; }
+
+/* =========================================================
+   CONTACTOS + MAPA
+   ========================================================= */
+.contactos{ background: var(--black); color:var(--white); }
+.cont-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:80px; }
+@media (max-width:900px){ .cont-grid{ grid-template-columns:1fr; gap:56px; } }
+
+.cont-block + .cont-block{ margin-top:34px; padding-top:34px; border-top:1px solid var(--line-on-black); }
+.cont-label{ font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:var(--grey-500); margin-bottom:10px; }
+.cont-value{ font-family:var(--font-display); font-size:22px; }
+.cont-buttons{ display:flex; gap:14px; margin-top:36px; flex-wrap:wrap; }
+
+.hours-table{ width:100%; border-collapse:collapse; margin-top:6px; }
+.hours-table tr{ border-top:1px solid var(--line-on-black); }
+.hours-table tr:last-child{ border-bottom:1px solid var(--line-on-black); }
+.hours-table td{ padding:11px 0; font-family:var(--font-mono); font-size:13.5px; }
+.hours-table td:last-child{ text-align:right; color: var(--grey-300); }
+.hours-table tr.today td{ color:var(--white); }
+.hours-table tr.today td:first-child::before{ content:"● "; font-size:8px; }
+
+/* formulário */
+.form{ display:flex; flex-direction:column; gap:18px; }
+.field{ display:flex; flex-direction:column; gap:8px; }
+.field label{ font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--grey-500); }
+.field input, .field textarea{
+  background:transparent; border:none; border-bottom:1px solid var(--line-on-black);
+  padding:10px 2px; color:var(--white); font-family:var(--font-body); font-size:15px;
+  transition: border-color .3s;
+}
+.field input:focus, .field textarea:focus{ outline:none; border-color: var(--white); }
+.field textarea{ resize:vertical; min-height:70px; }
+.form .btn{ align-self:flex-start; margin-top:6px; }
+.form-note{ font-size:12.5px; color:var(--grey-500); font-family:var(--font-mono); min-height:16px; }
+
+.map-wrap{ margin-top:100px; border-top:1px solid var(--line-on-black); }
+.map-card{
+  display:flex; align-items:center; gap:22px;
+  padding: 40px 32px; color: var(--white);
+  transition: background .35s var(--ease), padding-left .35s var(--ease);
+}
+.map-card:hover{ background: rgba(250,249,247,0.05); padding-left:40px; }
+.map-card-text{ display:flex; flex-direction:column; gap:6px; flex:1; }
+.map-card-text b{ font-family:var(--font-display); font-size:19px; font-weight:500; letter-spacing:0.01em; }
+.map-card-text em{ font-style:normal; font-family:var(--font-mono); font-size:12.5px; color:var(--grey-500); }
+.map-card-arrow{ flex-shrink:0; transition: transform .35s var(--ease); }
+.map-card:hover .map-card-arrow{ transform: translateX(6px); }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30px; border-top:1px solid var(--line-on-black); }
+.foot-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:40px; padding-bottom:44px; border-bottom:1px solid var(--line-on-black); }
+.foot-brand .logo{ margin-bottom:14px; }
+.foot-brand p{ color: var(--grey-500); max-width:280px; font-size:14px; }
+.foot-cols{ display:flex; gap:70px; flex-wrap:wrap; }
+.foot-col h4{ font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:var(--grey-500); margin-bottom:16px; }
+.foot-col a, .foot-col span{ display:block; font-size:14.5px; color:var(--grey-300); margin-bottom:10px; }
+.foot-col a:hover{ color:var(--white); }
+.foot-bottom{ padding-top:26px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-family:var(--font-mono); font-size:11.5px; color:var(--grey-500); }
+
+/* =========================================================
+   scroll reveal genérico
+   ========================================================= */
+.reveal{ opacity:0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.visible{ opacity:1; transform:none; }
+
+/* botão flutuante WhatsApp */
+.wa-float{
+  position:fixed; bottom:24px; right:24px; z-index:90;
+  width:54px; height:54px; border-radius:50%; background: var(--black);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  transition: transform .3s var(--ease);
+}
+.wa-float:hover{ transform: scale(1.08); }
+
+/* ===================== GALERIA ===================== */
+.galeria-grid{ display:grid; grid-template-columns: repeat(2,1fr); gap:1px; background: var(--line-on-white); border:1px solid var(--line-on-white); }
+@media (max-width:720px){ .galeria-grid{ grid-template-columns:1fr; } }
+.galeria-item{ margin:0; overflow:hidden; background: var(--white); }
+.galeria-item img{ width:100%; height:100%; object-fit:cover; aspect-ratio:4/3; filter: grayscale(1); transition: transform .8s var(--ease), filter .6s var(--ease); }
+.galeria-item:hover img{ transform: scale(1.04); filter: grayscale(0.85); }
+
+/* ===================== LOCALIZAÇÃO ===================== */
+.localizacao{ background: var(--grey-100); }
+.street-frame{ border:1px solid var(--line-on-white); background: var(--black); aspect-ratio:16/9; }
+@media (max-width:640px){ .street-frame{ aspect-ratio:4/3; } }
+.street-frame iframe{ width:100%; height:100%; border:0; display:block; }
+</style>
+</head>
+<body>
+
+
+<!-- ===================== HEADER ===================== -->
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="#top" class="logo">SAL<span>·</span>PT</a>
+    <nav id="mainNav">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#porque">Porquê o SAL</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+        <li><a href="#contactos">Contactos</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+351935898342" class="btn btn-primary" style="padding:11px 20px; font-size:12px;">Marcar</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-kicker">Estúdio privado — Espinho</div>
+    <h1>
+      <span class="line"><span>Sem filas.</span></span>
+      <span class="line"><span>Sem multidões.</span></span>
+      <span class="line"><span>Só treino.</span></span>
+    </h1>
+    <p class="hero-sub">Um espaço só para ti e o teu treinador, sem esperar por equipamento nem partilhar atenção. Personal Training a sério, sessão a sessão.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/351935898342?text=Ol%C3%A1%2C%20gostava%20de%20marcar%20uma%20sess%C3%A3o%20experimental." target="_blank" rel="noopener" class="btn btn-primary">Marcar sessão</a>
+      <a href="tel:+351935898342" class="btn btn-outline">Ligar agora</a>
+    </div>
+    <div class="hero-foot">
+      <span>Rua 26, 395, Espinho</span>
+      <span class="scroll-cue">explorar <i></i></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOBRE ===================== -->
+<section id="sobre" class="sobre">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">O estúdio</div>
+      <h2>Feito para treinar,<br>não para esperar</h2>
+    </div>
+    <div class="sobre-text reveal">
+      <p>A maioria dos ginásios cresce à volta de máquinas e de pessoas — e é aí que se perde tempo. O SAL Personal Training nasceu ao contrário: um estúdio pequeno, privado, pensado para uma pessoa de cada vez.</p>
+      <p>Aqui não há espera pelo aparelho que precisas, nem sessões partilhadas com desconhecidos. Cada treino é construído contigo, ajustado ao teu corpo, ao teu objetivo e ao tempo que tens disponível.</p>
+      <div class="sobre-figures">
+        <div class="figure"><b>1:1</b><span>Treinador &amp; cliente</span></div>
+        <div class="figure"><b>0</b><span>Espera por equipamento</span></div>
+        <div class="figure"><b>6</b><span>Dias por semana</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVIÇOS ===================== -->
+<section id="servicos" class="servicos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Serviços</div>
+      <h2>Acompanhamento à tua medida</h2>
+      <p>Sem planos genéricos. Cada modalidade é construída à volta do teu ponto de partida e do resultado que procuras.</p>
+    </div>
+    <div class="serv-grid reveal">
+      <div class="serv-card">
+        <span class="serv-num">01</span>
+        <h3>Treino Individual</h3>
+        <p>Sessões 1:1 do início ao fim — avaliação, plano de treino e ajustes constantes, sempre com o mesmo treinador.</p>
+      </div>
+      <div class="serv-card">
+        <span class="serv-num">02</span>
+        <h3>Treino a 2</h3>
+        <p>Treina com um amigo, parceiro ou colega, sem abdicar da atenção individual em cada exercício.</p>
+      </div>
+      <div class="serv-card">
+        <span class="serv-num">03</span>
+        <h3>Acompanhamento Contínuo</h3>
+        <p>Plano revisto semana a semana, com acompanhamento fora das sessões para garantir que o progresso não pára.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PORQUÊ O SAL ===================== -->
+<section id="porque" class="porque">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow eyebrow--on-black">Porquê o SAL</div>
+      <h2>O teu tempo é o recurso<br>mais valioso que tens</h2>
+    </div>
+    <div class="porque-grid">
+      <div class="porque-list reveal">
+        <div class="porque-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="white" stroke-width="1"/><path d="M10 5v5l3 2" stroke="white" stroke-width="1"/></svg>
+          <div><h3>Zero tempo de espera</h3><p>O espaço e o equipamento estão sempre disponíveis quando tu estás.</p></div>
+        </div>
+        <div class="porque-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="13" stroke="white" stroke-width="1"/><path d="M2 8h16" stroke="white" stroke-width="1"/></svg>
+          <div><h3>Horário flexível</h3><p>Sessões marcadas à volta da tua rotina, não da rotina do ginásio.</p></div>
+        </div>
+        <div class="porque-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3" stroke="white" stroke-width="1"/><path d="M4 17c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="white" stroke-width="1"/></svg>
+          <div><h3>Atenção 100% dedicada</h3><p>Um treinador, um cliente. Sem dividir a sessão com mais ninguém.</p></div>
+        </div>
+        <div class="porque-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" stroke="white" stroke-width="1"/></svg>
+          <div><h3>Espaço privado</h3><p>Um estúdio pequeno, sem espelhos de sala cheia nem barulho constante.</p></div>
+        </div>
+      </div>
+
+      <div class="signature reveal">
+        <div class="dotfield" id="dotfield"></div>
+        <div class="signature-caption" id="dotCaption">
+          <span>Ginásio comum <b>— dezenas por sala</b></span>
+        </div>
+        <p class="signature-note">No SAL, a sala é sempre só tua e do teu treinador.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTEMUNHOS ===================== -->
+<section class="testemunhos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Testemunhos</div>
+      <h2>Quem já treina no SAL</h2>
+    </div>
+    <div class="test-grid reveal">
+      <div class="test-card">
+        <div class="test-mark">"</div>
+        <p>O PT João leva a nossa experiência de treino no SAL ao próximo nível. Ele tem o cuidado de acompanhar o aluno, dentro e fora da aula, para conseguir criar o melhor programa de treino com os objectivos em mente.</p>
+        <div class="test-author">— Ruben Ferreira<span style="display:block; margin-top:6px; color:var(--grey-500);">Local Guide · 2 reviews · Google</span></div>
+      </div>
+      <div class="test-card">
+        <div class="test-mark">"</div>
+        <p>PT motivado, dedicado que transforma desafios em conquistas. Com orientação personalizada, atenta e incentivo constante, o João ajuda a alcançar resultados que julguei impossíveis.</p>
+        <div class="test-author">— Sira Loureiro<span style="display:block; margin-top:6px; color:var(--grey-500);">2 reviews · Google</span></div>
+      </div>
+      <div class="test-card">
+        <div class="test-mark">"</div>
+        <p>Senti a necessidade de procurar um apoio mais individualizado e focado nas minhas necessidades específicas!! O João superou as minhas expectativas!! Alinha-se com os nossos objetivos e facilmente nos motiva e nos envolve a cada desafio!! Sinto muitas melhorias no meu bem estar físico!! Recomendo a 100%!!</p>
+        <div class="test-author">— Mariana Carvalho<span style="display:block; margin-top:6px; color:var(--grey-500);">2 reviews · Google</span></div>
+      </div>
+    </div>
+    <!-- Nota: substituir por testemunhos reais de clientes assim que disponíveis -->
+    <div style="text-align:center; margin-top:44px;">
+      <a href="https://maps.app.goo.gl/xKVnJ1C73fanCVNg9?g_st=ic" target="_blank" rel="noopener" class="btn btn-line">Ver mais no Google</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERIA ===================== -->
+<section id="galeria" class="galeria">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Galeria</div>
+      <h2>Por dentro do estúdio</h2>
+      <p>Um espaço pequeno, privado e completo — pensado para treinar sem interrupções.</p>
+    </div>
+    <div class="galeria-grid reveal">
+      <figure class="galeria-item"><img src="/galeria/galeria-1.jpg" alt="Zona de pesos livres do estúdio SAL Personal Training" loading="lazy" width="1200" height="900"></figure>
+      <figure class="galeria-item"><img src="/galeria/galeria-2.jpg" alt="Rack de agachamento no estúdio privado em Espinho" loading="lazy" width="1200" height="900"></figure>
+      <figure class="galeria-item"><img src="/galeria/galeria-3.jpg" alt="Zona de banco, kettlebells e colchões de treino" loading="lazy" width="1200" height="900"></figure>
+      <figure class="galeria-item"><img src="/galeria/galeria-4.jpg" alt="Máquina de cabos e zona funcional do estúdio" loading="lazy" width="1200" height="900"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Perguntas frequentes</div>
+      <h2>Antes de marcares</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q"><span>Preciso de ter experiência prévia em treino?</span><span class="plus"></span></button>
+        <div class="faq-a"><p>Não. O plano é construído a partir do teu ponto de partida, seja o primeiro treino ou já teres experiência de ginásio.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Quanto tempo dura cada sessão?</span><span class="plus"></span></button>
+        <div class="faq-a"><p>As sessões são combinadas conforme o teu objetivo e disponibilidade — poderás treinar cerca de 30 a 60 minutos.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Posso experimentar antes de decidir?</span><span class="plus"></span></button>
+        <div class="faq-a"><p>Sim. Contacta-nos por telefone ou WhatsApp para marcar uma sessão experimental e conhecer o espaço.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Como funcionam os planos e pagamentos?</span><span class="plus"></span></button>
+        <div class="faq-a"><p>Os planos são definidos consoante a frequência semanal que escolheres. Todos os detalhes são explicados antes da primeira sessão.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Qual é o horário do estúdio?</span><span class="plus"></span></button>
+        <div class="faq-a"><p>Segunda a sexta das 6h às 20h. Encerrado ao sábado e domingo.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LOCALIZAÇÃO ===================== -->
+<section id="localizacao" class="localizacao">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Localização</div>
+      <h2>Vê o estúdio por fora</h2>
+      <p>Vista 360º da rua do estúdio, em Rua 26, 395, Espinho. Arrasta para explorar.</p>
+    </div>
+    <div class="street-frame reveal">
+      <iframe src="https://maps.google.com/maps?layer=c&cbll=41.0100299,-8.636888&cbp=11,0,0,0,0&output=svembed" title="Vista 360º da rua do estúdio SAL Personal Training" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="margin-top:28px;">
+      <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0xd247910ca130e83:0xcbb749a89371143c" target="_blank" rel="noopener" class="btn btn-line">Abrir no Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACTOS ===================== -->
+<section id="contactos" class="contactos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow eyebrow--on-black">Contactos</div>
+      <h2>Marca a tua sessão</h2>
+    </div>
+
+    <div class="cont-grid">
+      <div class="reveal">
+        <div class="cont-block">
+          <div class="cont-label">Telefone</div>
+          <a href="tel:+351935898342" class="cont-value">935 898 342</a>
+        </div>
+        <div class="cont-block">
+          <div class="cont-label">Morada</div>
+          <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0xd247910ca130e83:0xcbb749a89371143c" target="_blank" rel="noopener" class="cont-value" style="font-size:17px; text-transform:none; font-family:var(--font-body); font-weight:500;">R. 26 395, 4500-163 Espinho</a>
+        </div>
+        <div class="cont-block">
+          <div class="cont-label">Horário</div>
+          <table class="hours-table" id="hoursTable">
+            <tr data-day="1"><td>Segunda</td><td>6h – 20h</td></tr>
+            <tr data-day="2"><td>Terça</td><td>6h – 20h</td></tr>
+            <tr data-day="3"><td>Quarta</td><td>6h – 20h</td></tr>
+            <tr data-day="4"><td>Quinta</td><td>6h – 20h</td></tr>
+            <tr data-day="5"><td>Sexta</td><td>6h – 20h</td></tr>
+            <tr data-day="6"><td>Sábado</td><td>Encerrado</td></tr>
+            <tr data-day="0"><td>Domingo</td><td>Encerrado</td></tr>
+          </table>
+        </div>
+        <div class="cont-buttons">
+          <a href="https://wa.me/351935898342?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20o%20Personal%20Training." target="_blank" rel="noopener" class="btn btn-primary">WhatsApp</a>
+          <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0xd247910ca130e83:0xcbb749a89371143c" target="_blank" rel="noopener" class="btn btn-outline">Como chegar</a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="cont-label" style="margin-bottom:20px;">Envia uma mensagem</div>
+        <form class="form" id="contactForm">
+          <div class="field">
+            <label for="fname">Nome</label>
+            <input type="text" id="fname" name="nome" required>
+          </div>
+          <div class="field">
+            <label for="fcontact">Telefone ou email</label>
+            <input type="text" id="fcontact" name="contacto" required>
+          </div>
+          <div class="field">
+            <label for="fmsg">Mensagem</label>
+            <textarea id="fmsg" name="mensagem" placeholder="Conta-nos o teu objetivo..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark">Enviar mensagem</button>
+          <div class="form-note" id="formNote"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-wrap reveal">
+    <a class="map-card" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0xd247910ca130e83:0xcbb749a89371143c" target="_blank" rel="noopener">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      <span class="map-card-text">
+        <b>R. 26 395, 4500-163 Espinho</b>
+        <em>Ver localização e traçar caminho no Google Maps</em>
+      </span>
+      <svg class="map-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo">SAL<span>·</span>PT</div>
+        <p>Estúdio de Personal Training privado em Espinho. Sem filas, sem multidões — só treino.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Estúdio</h4>
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="foot-col">
+          <h4>Contacto</h4>
+          <a href="tel:+351935898342">935 898 342</a>
+          <a href="https://wa.me/351935898342" target="_blank" rel="noopener">WhatsApp</a>
+          <span>Rua 26, 395, Espinho</span>
+        </div>
+        <div class="foot-col">
+          <h4>Redes</h4>
+          <a href="https://www.instagram.com/salpersonaltraining/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> SAL Personal Training. Todos os direitos reservados.</span>
+      <span>Espinho, Portugal</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/351935898342?text=Ol%C3%A1%2C%20gostava%20de%20marcar%20uma%20sess%C3%A3o." target="_blank" rel="noopener" aria-label="Contactar via WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8 8 0 0 1-2.3-1.4 8.6 8.6 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.4-.5.2-.4c.1-.1.1-.3 0-.4s-.7-1.6-.9-2.2-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3a2.7 2.7 0 0 0-.9 2c0 1.2.9 2.3 1 2.5.1.1 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3s.2-1.2.1-1.3-.2-.2-.5-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+</a>
+
+
+<script>
+/* =========================================================
+   JS — comportamento, sem frameworks
+   ========================================================= */
+(function(){
+
+  // header sólido ao fazer scroll
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // menu mobile
+  const navToggle = document.getElementById('navToggle');
+  const mainNav = document.getElementById('mainNav');
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    mainNav.classList.toggle('open');
+  });
+  mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navToggle.classList.remove('open');
+    mainNav.classList.remove('open');
+  }));
+
+  // ano no rodapé
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // revelar dia atual na tabela de horário
+  const today = new Date().getDay();
+  const row = document.querySelector('#hoursTable tr[data-day="'+today+'"]');
+  if(row) row.classList.add('today');
+
+  // scroll reveal genérico — tolerante a scroll rápido por toque (tablet/telemóvel)
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // rede de segurança: se por alguma razão a deteção falhar (scroll muito rápido,
+  // browser antigo, etc.), garante que nada fica permanentemente invisível
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+    }, 2500);
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(open => {
+        open.classList.remove('open');
+        open.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // ---- assinatura visual: grelha de pontos (multidão -> 1:1) ----
+  const field = document.getElementById('dotfield');
+  const caption = document.getElementById('dotCaption');
+  const TOTAL = 49; // grelha 7x7
+  const keepIndexes = [24, 25]; // dois pontos centrais = treinador + cliente
+  for(let i=0;i<TOTAL;i++){
+    const d = document.createElement('div');
+    d.className = 'dot';
+    if(keepIndexes.includes(i)) d.classList.add('keep');
+    d.style.transitionDelay = (Math.random()*0.4)+'s';
+    field.appendChild(d);
+  }
+
+  const fieldObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        setTimeout(() => {
+          field.classList.add('cleared');
+          caption.innerHTML = '<span><b>Só tu</b> e o teu treinador</span>';
+          caption.classList.add('show');
+        }, 900);
+        fieldObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+  fieldObserver.observe(field);
+
+  // formulário de contacto (sem backend — abre email/whatsapp com os dados)
+  const form = document.getElementById('contactForm');
+  const note = document.getElementById('formNote');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const nome = form.nome.value.trim();
+    const contacto = form.contacto.value.trim();
+    const mensagem = form.mensagem.value.trim();
+    if(!nome || !contacto){
+      note.textContent = 'Preenche o nome e um contacto, por favor.';
+      note.style.color = '#faf9f7';
+      return;
+    }
+    const texto = encodeURIComponent(
+      'Olá, o meu nome é ' + nome + '. Contacto: ' + contacto + (mensagem ? ('. Mensagem: ' + mensagem) : '.')
+    );
+    window.open('https://wa.me/351935898342?text=' + texto, '_blank');
+    note.textContent = 'A abrir o WhatsApp com a tua mensagem...';
+    form.reset();
+  });
+
+})();
+</script>
+</body>
+</html>

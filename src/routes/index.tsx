@@ -136,7 +136,7 @@ function Index() {
         return;
       }
       const texto = `Olá, sou ${nome} (${contacto}).${mensagem ? ` ${mensagem}` : ""}`;
-      window.open(`https://wa.me/351935898342?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
+      window.open(`https://wa.me/351935261830?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
       if (note) note.textContent = "A abrir o WhatsApp com a tua mensagem...";
       form.reset();
     };

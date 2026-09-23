@@ -110,7 +110,7 @@ function Index() {
               window.setTimeout(() => {
                 field.classList.add("cleared");
                 if (caption) {
-                  caption.innerHTML = "<span><b>Só tu</b> e o teu treinador</span>";
+                  caption.innerHTML = "<span><b>SÓ TU</b> E O TEU PT</span>";
                   caption.classList.add("show");
                 }
               }, 900);

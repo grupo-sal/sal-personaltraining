@@ -26,6 +26,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
+
 /* =========================================================
    TOKENS
    Paleta estritamente preto/branco (pedido do cliente) —
@@ -33,8 +34,8 @@
    sem ruído, tal como o estúdio que vende.
    ========================================================= */
 :root{
-  --black:      #0b0b0c;
-  --black-soft: #151516;
+  --black:      #022f6b;
+  --black-soft: #022f6b;
   --white:      #faf9f7;
   --grey-100:   #f0efec;
   --grey-300:   #d8d6d1;
@@ -46,6 +47,7 @@
   --font-display: 'Oswald', sans-serif;
   --font-body:    'Inter', sans-serif;
   --font-mono:    'IBM Plex Mono', monospace;
+  --font-brand:   'Montserrat', sans-serif;
 
   --container: 1180px;
   --ease: cubic-bezier(.22,.8,.28,1);
@@ -136,16 +138,17 @@ header{
   border-bottom: 1px solid transparent;
 }
 header.scrolled{
-  background: rgba(11,11,12,0.92);
+  background: rgba(2,47,107,0.96);
   backdrop-filter: blur(10px);
   padding: 14px 0;
   border-color: var(--line-on-black);
 }
 header .wrap{ display:flex; align-items:center; justify-content:space-between; }
 .logo{
-  font-family: var(--font-display);
-  font-size: 21px;
-  letter-spacing: 0.14em;
+  font-family: var(--font-brand);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
   color: var(--white);
 }
 .logo span{ color: var(--grey-500); }
@@ -183,6 +186,15 @@ nav a:hover::after{ width:100%; }
   .nav-toggle.open span:nth-child(2){ opacity:0; }
   .nav-toggle.open span:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
 }
+
+/* ---------- logotipo ---------- */
+.logo{ display:inline-flex; align-items:center; gap:9px; }
+.logo-mark{ width:22px; height:auto; display:block; }
+.logo-mark--lg{ width:26px; }
+.hero-grid{ display:grid; grid-template-columns: 1fr auto; gap:56px; align-items:center; }
+.hero-art{ display:flex; justify-content:flex-end; opacity:0; animation: rise 1.1s var(--ease) .6s forwards; }
+.hero-art img{ width: clamp(180px, 22vw, 300px); opacity:.9; }
+@media (max-width: 900px){ .hero-grid{ grid-template-columns:minmax(0,1fr) auto; gap:18px; } .hero-art{ display:flex; } .hero-art img{ width:clamp(74px,20vw,120px); } }
 
 /* =========================================================
    HERO
@@ -222,7 +234,7 @@ nav a:hover::after{ width:100%; }
 }
 .hero h1 .line:nth-child(1) span{ animation-delay: .25s; }
 .hero h1 .line:nth-child(2) span{ animation-delay: .38s; }
-.hero h1 .line:nth-child(3) span{ animation-delay: .51s; color: var(--grey-500); }
+.hero h1 .line:nth-child(3) span{ animation-delay: .51s; color: var(--white); }
 
 .hero-sub{
   margin-top:30px; max-width:520px;
@@ -235,7 +247,7 @@ nav a:hover::after{ width:100%; }
 .hero-foot{
   margin-top:96px; padding-top:26px; border-top:1px solid var(--line-on-black);
   display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
-  font-family: var(--font-mono); font-size:12px; color: var(--grey-500); letter-spacing:0.04em;
+  font-family: var(--font-mono); font-size:12px; color: var(--white); letter-spacing:0.04em;
   opacity:0; animation: rise .8s var(--ease) 1.05s forwards;
 }
 .hero-foot .dot{ color: var(--white); }
@@ -345,7 +357,7 @@ nav a:hover::after{ width:100%; }
 .faq-a p{ padding: 0 4px 26px; font-size:15px; max-width:600px; }
 
 /* =========================================================
-/* =========================================================
+   /* =========================================================
    PLANOS
    ========================================================= */
 .planos{ background: var(--grey-100); }
@@ -396,14 +408,14 @@ nav a:hover::after{ width:100%; }
   font-family: var(--font-mono); font-size:12.5px; color: var(--grey-500); letter-spacing:0.03em;
 }
 
-   CONTACTOS + MAPA
+CONTACTOS + MAPA
    ========================================================= */
 .contactos{ background: var(--black); color:var(--white); }
 .cont-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:80px; }
 @media (max-width:900px){ .cont-grid{ grid-template-columns:1fr; gap:56px; } }
 
 .cont-block + .cont-block{ margin-top:34px; padding-top:34px; border-top:1px solid var(--line-on-black); }
-.cont-label{ font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:var(--grey-500); margin-bottom:10px; }
+.cont-label{ font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:var(--white); margin-bottom:10px; }
 .cont-value{ font-family:var(--font-display); font-size:22px; }
 .cont-buttons{ display:flex; gap:14px; margin-top:36px; flex-wrap:wrap; }
 
@@ -427,7 +439,7 @@ nav a:hover::after{ width:100%; }
 .field input:focus, .field textarea:focus{ outline:none; border-color: var(--white); }
 .field textarea{ resize:vertical; min-height:70px; }
 .form .btn{ align-self:flex-start; margin-top:6px; }
-.form-note{ font-size:12.5px; color:var(--grey-500); font-family:var(--font-mono); min-height:16px; }
+.form-note{ font-size:12.5px; color:var(--white); font-family:var(--font-mono); min-height:16px; }
 
 .map-wrap{ margin-top:100px; border-top:1px solid var(--line-on-black); }
 .map-card{
@@ -475,8 +487,8 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
 .galeria-grid{ display:grid; grid-template-columns: repeat(2,1fr); gap:1px; background: var(--line-on-white); border:1px solid var(--line-on-white); }
 @media (max-width:720px){ .galeria-grid{ grid-template-columns:1fr; } }
 .galeria-item{ margin:0; overflow:hidden; background: var(--white); }
-.galeria-item img{ width:100%; height:100%; object-fit:cover; aspect-ratio:4/3; filter: grayscale(1); transition: transform .8s var(--ease), filter .6s var(--ease); }
-.galeria-item:hover img{ transform: scale(1.04); filter: grayscale(0.85); }
+.galeria-item img{ width:100%; height:100%; object-fit:cover; aspect-ratio:4/3; transition: transform .8s var(--ease); }
+.galeria-item:hover img{ transform: scale(1.04); }
 
 /* ===================== O ESTÚDIO (BENTO) ===================== */
 .estudio{ background: var(--white); }
@@ -506,15 +518,17 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
 .street-frame{ border:1px solid var(--line-on-white); background: var(--black); aspect-ratio:16/9; }
 @media (max-width:640px){ .street-frame{ aspect-ratio:4/3; } }
 .street-frame iframe{ width:100%; height:100%; border:0; display:block; }
+
 </style>
 </head>
 <body>
 
 
+
 <!-- ===================== HEADER ===================== -->
 <header id="siteHeader">
   <div class="wrap">
-    <a href="#top" class="logo">SAL<span>·</span>PT</a>
+    <a href="#top" class="logo">SAL — Personal Training</a>
     <nav id="mainNav">
       <ul>
         <li><a href="#sobre">Sobre</a></li>
@@ -536,6 +550,8 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
 <!-- ===================== HERO ===================== -->
 <section class="hero" id="top">
   <div class="wrap">
+   <div class="hero-grid">
+    <div class="hero-copy">
     <div class="hero-kicker">Estúdio privado — Espinho</div>
     <h1>
       <span class="line"><span>Sem filas.</span></span>
@@ -547,6 +563,9 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
       <a href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20marcar%20uma%20sess%C3%A3o%20experimental." target="_blank" rel="noopener" class="btn btn-primary">Marcar sessão</a>
       <a href="tel:+351935261830" class="btn btn-outline">Ligar agora</a>
     </div>
+    </div>
+    <div class="hero-art"><img src="/sal-logo.png" alt="Logotipo SAL"></div>
+   </div>
     <div class="hero-foot">
       <span>Rua 26, 395, Espinho</span>
       <span class="scroll-cue">explorar <i></i></span>
@@ -562,12 +581,12 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
       <h2>Feito para treinar,<br>não para esperar</h2>
     </div>
     <div class="sobre-text reveal">
-      <p>A maioria dos ginásios cresce à volta de máquinas e de pessoas — e é aí que se perde tempo. O SAL Personal Training nasceu ao contrário: um estúdio pequeno, privado, pensado para uma pessoa de cada vez.</p>
+      <p>A maioria dos ginásios cresce à volta de máquinas e de pessoas — e é aí que se perde tempo. O SAL — Personal Training não é mais 1. Nasceu ao contrário: um estúdio pequeno, privado, pensado para uma pessoa de cada vez.</p>
       <p>Aqui não há espera pelo aparelho que precisas, nem sessões partilhadas com desconhecidos. Cada treino é construído contigo, ajustado ao teu corpo, ao teu objetivo e ao tempo que tens disponível.</p>
       <div class="sobre-figures">
-        <div class="figure"><b>1:1</b><span>Treinador &amp; cliente</span></div>
+        <div class="figure"><b>1:1</b><span>PT & CLIENTE</span></div>
         <div class="figure"><b>0</b><span>Espera por equipamento</span></div>
-        <div class="figure"><b>6</b><span>Dias por semana</span></div>
+        <div class="figure"><b>7</b><span>Dias por semana</span></div>
       </div>
     </div>
   </div>
@@ -585,12 +604,12 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
       <div class="serv-card">
         <span class="serv-num">01</span>
         <h3>Treino Individual</h3>
-        <p>Sessões 1:1 do início ao fim — avaliação, plano de treino e ajustes constantes, sempre com o mesmo treinador.</p>
+        <p>Sessões 1:1 do início ao fim — avaliação, plano de treino e ajustes constantes, sempre com PT.</p>
       </div>
       <div class="serv-card">
         <span class="serv-num">02</span>
         <h3>Treino a 2</h3>
-        <p>Treina com um amigo, parceiro ou colega, sem abdicar da atenção individual em cada exercício.</p>
+        <p>Treina com um amigo, familiar ou com o teu par sem abdicar da atenção individual em cada exercício.</p>
       </div>
       <div class="serv-card">
         <span class="serv-num">03</span>
@@ -606,16 +625,16 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">O Estúdio</div>
-      <h2>Onde a performance acontece</h2>
+      <h2>ONDE VAIS TREINAR</h2>
     </div>
     <div class="bento reveal">
-      <figure class="bento-item bento-main"><img src="/galeria/galeria-1.jpg" alt="Sala de treino do estúdio SAL Personal Training com banco, halteres e parede verde #TeamSAL" loading="lazy" width="1024" height="768"><span class="bento-tag">Vista geral</span></figure>
-      <figure class="bento-item bento-wide"><img src="/galeria/galeria-2.jpg" alt="Zona de treino com espelhos redondos, prateleira de halteres e equipamento de força" loading="lazy" width="1024" height="768"><span class="bento-tag">Sala de treino</span></figure>
-      <figure class="bento-item"><img src="/estudio/balnearios.jpg" alt="Balneário do estúdio SAL com duche, espelho redondo e móvel de lavabo" loading="lazy" width="1024" height="768"><span class="bento-tag">Equipamento</span></figure>
-      <figure class="bento-item"><img src="/galeria/galeria-3.jpg" alt="Bike de ar refletida no espelho, junto à parede verde do estúdio" loading="lazy" width="1024" height="768"><span class="bento-tag">Cardio</span></figure>
+      <figure class="bento-item bento-main"><img src="/galeria/galeria-1.jpg" alt="Sala de treino do estúdio SAL Personal Training com banco, halteres e parede verde #TeamSAL" loading="lazy" width="1024" height="768"><span class="bento-tag">NAVE DE TREINO 1</span></figure>
+      <figure class="bento-item bento-wide"><img src="/galeria/galeria-2.jpg" alt="Zona de treino com espelhos redondos, prateleira de halteres e equipamento de força" loading="lazy" width="1024" height="768"><span class="bento-tag">NAVE DE TREINO 2</span></figure>
+      <figure class="bento-item"><img src="/estudio/balnearios.jpg" alt="Balneário do estúdio SAL com duche, espelho redondo e móvel de lavabo" loading="lazy" width="1024" height="768"><span class="bento-tag">BALNEÁRIOS</span></figure>
+      <figure class="bento-item"><img src="/galeria/galeria-3.jpg" alt="Bike de ar refletida no espelho, junto à parede verde do estúdio" loading="lazy" width="1024" height="768"><span class="bento-tag">ZONA DE AQUECIMENTO</span></figure>
     </div>
     <div class="bento-foot reveal">
-      <p>Um espaço desenhado para o foco total — equipamento completo, num ambiente privado, em Espinho.</p>
+      <p>Um espaço desenhado para o foco total — equipamento completo, num ambiente privado e sem barulho, em Espinho.</p>
       <span class="bento-coords">SAL · 41.0100° N, 8.6369° W</span>
     </div>
   </div>
@@ -636,15 +655,15 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
         </div>
         <div class="porque-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="13" stroke="white" stroke-width="1"/><path d="M2 8h16" stroke="white" stroke-width="1"/></svg>
-          <div><h3>Horário flexível</h3><p>Sessões marcadas à volta da tua rotina, não da rotina do ginásio.</p></div>
+          <div><h3>Horário flexível</h3><p>Sessões marcadas à volta da tua rotina, não da rotina de um ginásio.</p></div>
         </div>
         <div class="porque-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3" stroke="white" stroke-width="1"/><path d="M4 17c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="white" stroke-width="1"/></svg>
-          <div><h3>Atenção 100% dedicada</h3><p>Um treinador, um cliente. Sem dividir a sessão com mais ninguém.</p></div>
+          <div><h3>Atenção 100% dedicada</h3><p>Um PT, um cliente. Sem dividir a sessão com mais ninguém.</p></div>
         </div>
         <div class="porque-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" stroke="white" stroke-width="1"/></svg>
-          <div><h3>Espaço privado</h3><p>Um estúdio pequeno, sem espelhos de sala cheia nem barulho constante.</p></div>
+          <div><h3>Espaço privado</h3><p>Um estúdio privado, sem espelhos de sala cheia nem barulho constante.</p></div>
         </div>
       </div>
 
@@ -653,7 +672,7 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
         <div class="signature-caption" id="dotCaption">
           <span>Ginásio comum <b>— dezenas por sala</b></span>
         </div>
-        <p class="signature-note">No SAL, a sala é sempre só tua e do teu treinador.</p>
+        <p class="signature-note">No SAL, a sala é só tua e do teu treinador.</p>
       </div>
     </div>
   </div>
@@ -695,8 +714,8 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">Galeria</div>
-      <h2>Por dentro do estúdio</h2>
-      <p>Um espaço pequeno, privado e completo — pensado para treinar sem interrupções.</p>
+      <h2>OS NOSSOS ATLETAS EM AÇÃO</h2>
+      <p>São eles que dão força à #TeamSAL. Treinam num espaço em constante evolução, privado e completo — pensado para treinar sem interrupções.</p>
     </div>
     <div class="galeria-grid reveal">
       <figure class="galeria-item"><img src="/galeria/pt-1.jpg" alt="Treino de tríceps com halter no estúdio SAL Personal Training" loading="lazy" width="1200" height="900"></figure>
@@ -721,7 +740,7 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Quanto tempo dura cada sessão?</span><span class="plus"></span></button>
-        <div class="faq-a"><p>As sessões são combinadas conforme o teu objetivo e disponibilidade — poderás treinar cerca de 30 a 60 minutos.</p></div>
+        <div class="faq-a"><p>As sessões são combinadas conforme o teu objetivo e disponibilidade — podes treinar 30 ou 60 minutos.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Posso experimentar antes de decidir?</span><span class="plus"></span></button>
@@ -729,11 +748,11 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Como funcionam os planos e pagamentos?</span><span class="plus"></span></button>
-        <div class="faq-a"><p>Os planos são definidos consoante a frequência semanal que escolheres. Todos os detalhes são explicados antes da primeira sessão.</p></div>
+        <div class="faq-a"><p>Marca a tua visita ao estúdio para conheceres o espaço. Lá, podemos conhecer-te, mostrar-te os equipamentos, balneários e explicar-te como funcionam as modalidades. Zero compromisso.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Qual é o horário do estúdio?</span><span class="plus"></span></button>
-        <div class="faq-a"><p>Segunda a sexta das 6h às 20h. Encerrado ao sábado e domingo.</p></div>
+        <div class="faq-a"><p>Segunda a sexta das 6h às 20h. Ao sábado, entre as 8h e as 13h. Fechados ao domingo. Mas, como trabalhamos por marcação, este horário está sujeito a alterações.</p></div>
       </div>
     </div>
   </div>
@@ -745,7 +764,7 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
     <div class="section-head reveal">
       <div class="eyebrow">Localização</div>
       <h2>Vê o estúdio por fora</h2>
-      <p>Vista 360º da rua do estúdio, em Rua 26, 395, Espinho. Arrasta para explorar.</p>
+      <p>Vista 360.º<br>Rua 26, 395, Espinho. Arrasta para explorar.</p>
     </div>
     <div class="street-frame reveal">
       <iframe src="https://maps.google.com/maps?layer=c&cbll=41.0100299,-8.636888&cbp=11,0,0,0,0&output=svembed" title="Vista 360º da rua do estúdio SAL Personal Training" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -761,8 +780,8 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">Planos</div>
-      <h2>Preços por sessão</h2>
-      <p>Escolhe o formato: individual, a dois ou outros serviços. Valores de referência — o plano final é definido contigo na visita ao estúdio.</p>
+      <h2>MODALIDADES DE TREINO</h2>
+      <p>Escolhe o acompanhamento certo para ti para não falhares. Só precisas de aparecer e nós tratamos do resto.</p>
     </div>
     <div class="planos-tabs reveal" id="planosTabs" role="tablist" aria-label="Tipos de plano">
       <button class="planos-tab active" type="button" data-plan="individual">Individual</button>
@@ -772,16 +791,16 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
     <div class="planos-groups reveal">
       <div class="planos-group active" data-plan-group="individual">
         <div class="planos-grid planos-grid--2">
-          <div class="plano-card">
-            <div class="plano-tag">Sessão de 30 min</div>
-            <div class="plano-preco"><b>10€</b><span>/ sessão</span></div>
-            <p>Sessão 1:1 concentrada — aquecimento, treino e alongamento no tempo certo.</p>
-            <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20sess%C3%A3o%20individual%20de%2030%20minutos." target="_blank" rel="noopener">Escolher</a>
-          </div>
           <div class="plano-card plano-card--destaque">
             <span class="plano-rec">Recomendado</span>
-            <div class="plano-tag">Sessão de 60 min</div>
-            <div class="plano-preco"><b>15€</b><span>/ sessão</span></div>
+            <div class="plano-tag">30 MIN DESDE</div>
+            <div class="plano-preco"><b>21€</b><span>/ sessão</span></div>
+            <p>Sessão 1:1 focada no teu objetivo de treino. É o plano ideal para quem detesta perder tempo.</p>
+            <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20sess%C3%A3o%20individual%20de%2030%20minutos." target="_blank" rel="noopener">Escolher</a>
+          </div>
+          <div class="plano-card">
+            <div class="plano-tag">60 MIN DESDE</div>
+            <div class="plano-preco"><b>30€</b><span>/ sessão</span></div>
             <p>A sessão completa 1:1 — técnica, intensidade e progressão semana a semana, sempre com PT.</p>
             <a class="btn btn-primary plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20sess%C3%A3o%20individual%20de%2060%20minutos." target="_blank" rel="noopener">Escolher</a>
           </div>
@@ -789,16 +808,16 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
       </div>
       <div class="planos-group" data-plan-group="duo">
         <div class="planos-grid planos-grid--2">
-          <div class="plano-card">
-            <div class="plano-tag">Sessão de 30 min</div>
-            <div class="plano-preco"><b>16€</b><span>/ sessão · para os dois</span></div>
-            <p>Treina com o teu par, familiar ou amigo — atenção individual em cada exercício, a dividir a sessão.</p>
-            <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20sess%C3%A3o%20duo%20de%2030%20minutos." target="_blank" rel="noopener">Escolher</a>
-          </div>
           <div class="plano-card plano-card--destaque">
             <span class="plano-rec">Recomendado</span>
-            <div class="plano-tag">Sessão de 60 min</div>
-            <div class="plano-preco"><b>24€</b><span>/ sessão · para os dois</span></div>
+            <div class="plano-tag">30 MIN DESDE</div>
+            <div class="plano-preco"><b>35€</b><span>/ SESSÃO · PARA OS 2</span></div>
+            <p>Treina com o teu par, familiar ou amigo — garantimos atenção individual em cada exercício.</p>
+            <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20sess%C3%A3o%20duo%20de%2030%20minutos." target="_blank" rel="noopener">Escolher</a>
+          </div>
+          <div class="plano-card">
+            <div class="plano-tag">60 MIN DESDE</div>
+            <div class="plano-preco"><b>43€</b><span>/ SESSÃO · PARA OS 2</span></div>
             <p>A sessão completa a dois, com plano ajustado ao objetivo de cada um.</p>
             <a class="btn btn-primary plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20sess%C3%A3o%20duo%20de%2060%20minutos." target="_blank" rel="noopener">Escolher</a>
           </div>
@@ -807,21 +826,27 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
       <div class="planos-group" data-plan-group="outros">
         <div class="planos-grid">
           <div class="plano-card">
+            <div class="plano-tag">PT experimental</div>
+            <div class="plano-preco"><b>Grátis</b></div>
+            <p>Sessão de experimentação, sem compromisso — conhece o estúdio e treina antes de escolher o teu plano.</p>
+            <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20agendar%20a%20sess%C3%A3o%20experimental%20gr%C3%A1tis.%22 target="_blank" rel="noopener">Escolher</a>
+          </div>
+          <div class="plano-card">
             <div class="plano-tag">Taxa de inscrição</div>
-            <div class="plano-preco"><b>20€</b><span>pagamento único</span></div>
-            <p>Inclui a avaliação inicial e a definição do teu plano de treino.</p>
+            <div class="plano-preco"><b>25€</b><span>pagamento único</span></div>
+            <p>Inclui a avaliação inicial, o desenho do teu plano de treino e oferta de t-shirt.</p>
             <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20taxa%20de%20inscri%C3%A7%C3%A3o." target="_blank" rel="noopener">Escolher</a>
           </div>
           <div class="plano-card">
-            <div class="plano-tag">Aula avulso</div>
-            <div class="plano-preco"><b>15€</b><span>/ sessão · 60 min</span></div>
-            <p>Uma sessão sem compromisso — ideal para experimentar o estúdio.</p>
+            <div class="plano-tag">SESSÃO AVULSA</div>
+            <div class="plano-preco"><b>50€</b><span>/ sessão · 60 min</span></div>
+            <p>Uma sessão sem compromisso, ideal para experimentar o estúdio se estás de passagem.</p>
             <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20aula%20avulso." target="_blank" rel="noopener">Escolher</a>
           </div>
           <div class="plano-card">
             <div class="plano-tag">Consulta de nutrição</div>
-            <div class="plano-preco"><b>35€</b><span>/ consulta</span></div>
-            <p>Avaliação alimentar e plano de nutrição alinhado com o teu treino e objetivo.</p>
+            <div class="plano-preco"><b>40€</b><span>/ consulta</span></div>
+            <p>Avaliação alimentar e plano de nutrição alinhado com o teu treino, objetivos e rotina.</p>
             <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20consulta%20de%20nutri%C3%A7%C3%A3o." target="_blank" rel="noopener">Escolher</a>
           </div>
         </div>
@@ -857,7 +882,7 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
             <tr data-day="3"><td>Quarta</td><td>6h – 20h</td></tr>
             <tr data-day="4"><td>Quinta</td><td>6h – 20h</td></tr>
             <tr data-day="5"><td>Sexta</td><td>6h – 20h</td></tr>
-            <tr data-day="6"><td>Sábado</td><td>Encerrado</td></tr>
+            <tr data-day="6"><td>Sábado</td><td>8h — 13h</td></tr>
             <tr data-day="0"><td>Domingo</td><td>Encerrado</td></tr>
           </table>
         </div>
@@ -906,7 +931,7 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <div class="logo">SAL<span>·</span>PT</div>
+        <div class="logo">SAL — Personal Training</div>
         <p>Estúdio de Personal Training privado em Espinho. Sem filas, sem multidões — só treino.</p>
       </div>
       <div class="foot-cols">
@@ -938,6 +963,7 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
 <a class="wa-float" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20marcar%20uma%20sess%C3%A3o." target="_blank" rel="noopener" aria-label="Contactar via WhatsApp">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8 8 0 0 1-2.3-1.4 8.6 8.6 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.4-.5.2-.4c.1-.1.1-.3 0-.4s-.7-1.6-.9-2.2-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3a2.7 2.7 0 0 0-.9 2c0 1.2.9 2.3 1 2.5.1.1 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3s.2-1.2.1-1.3-.2-.2-.5-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
 </a>
+
 
 
 <script>

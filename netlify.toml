@@ -8,4 +8,6 @@
   status = 200
 
   [build.environment]
-  SECRETS_SCAN_OMIT_KEYS = "VITE_MY_PUBLIC_KEY,ANOTHER_SAFE_KEY"
+  # .env only holds public, browser-exposed VITE_ keys (e.g. the Google Maps
+  # browser key), which smart detection flags as likely secrets.
+  SECRETS_SCAN_OMIT_PATHS = ".env"

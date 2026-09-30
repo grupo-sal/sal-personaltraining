@@ -427,6 +427,29 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
 .galeria-item img{ width:100%; height:100%; object-fit:cover; aspect-ratio:4/3; filter: grayscale(1); transition: transform .8s var(--ease), filter .6s var(--ease); }
 .galeria-item:hover img{ transform: scale(1.04); filter: grayscale(0.85); }
 
+/* ===================== O ESTÚDIO (BENTO) ===================== */
+.estudio{ background: var(--white); }
+.bento{ display:grid; grid-template-columns: repeat(4,1fr); grid-template-rows: repeat(2,1fr); gap:14px; height: clamp(560px, 58vw, 680px); }
+.bento-item{ position:relative; margin:0; overflow:hidden; background: var(--grey-100); }
+.bento-item.bento-main{ grid-column: 1/3; grid-row: 1/3; }
+.bento-item.bento-wide{ grid-column: 3/5; }
+.bento-item img{ width:100%; height:100%; object-fit:cover; transition: transform .8s var(--ease); }
+.bento-item:hover img{ transform: scale(1.05); }
+.bento-tag{ position:absolute; left:14px; bottom:14px; font-family: var(--font-mono); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color: var(--white); background: var(--black); padding:5px 9px; }
+.bento-foot{ margin-top:26px; display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; }
+.bento-foot p{ max-width:560px; margin:0; }
+.bento-coords{ font-family: var(--font-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color: var(--grey-500); }
+@media (max-width:900px){
+  .bento{ grid-template-columns:1fr 1fr; grid-template-rows:auto; height:auto; }
+  .bento-item.bento-main{ grid-column:1/3; grid-row:auto; aspect-ratio:4/3; }
+  .bento-item.bento-wide{ grid-column:1/3; grid-row:auto; aspect-ratio:16/9; }
+  .bento-item:not(.bento-main):not(.bento-wide){ aspect-ratio:1/1; }
+}
+@media (max-width:520px){
+  .bento{ grid-template-columns:1fr; }
+  .bento-item.bento-main, .bento-item.bento-wide{ grid-column:auto; grid-row:auto; }
+}
+
 /* ===================== LOCALIZAÇÃO ===================== */
 .localizacao{ background: var(--grey-100); }
 .street-frame{ border:1px solid var(--line-on-white); background: var(--black); aspect-ratio:16/9; }
@@ -523,6 +546,26 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
         <h3>Acompanhamento Contínuo</h3>
         <p>Plano revisto semana a semana, com acompanhamento fora das sessões para garantir que o progresso não pára.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== O ESTÚDIO (BENTO) ===================== -->
+<section id="estudio" class="estudio">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">O Estúdio</div>
+      <h2>Onde a performance acontece</h2>
+    </div>
+    <div class="bento reveal">
+      <figure class="bento-item bento-main"><img src="/estudio/estudio-4.jpg" alt="Vista geral do estúdio SAL Personal Training ao final do dia" loading="lazy" width="1024" height="768"><span class="bento-tag">Vista geral</span></figure>
+      <figure class="bento-item bento-wide"><img src="/estudio/estudio-1.jpg" alt="Rack e barra olímpica na zona de força do estúdio" loading="lazy" width="1024" height="768"><span class="bento-tag">Força</span></figure>
+      <figure class="bento-item"><img src="/estudio/estudio-2.jpg" alt="Prateleira com kettlebells e medicine balls" loading="lazy" width="1024" height="768"><span class="bento-tag">Equipamento</span></figure>
+      <figure class="bento-item"><img src="/estudio/estudio-3.jpg" alt="Banco de treino e elásticos na zona de mobilidade" loading="lazy" width="1024" height="768"><span class="bento-tag">Mobilidade</span></figure>
+    </div>
+    <div class="bento-foot reveal">
+      <p>Um espaço desenhado para o foco total — equipamento completo, num ambiente privado, em Espinho.</p>
+      <span class="bento-coords">SAL · 41.0100° N, 8.6369° W</span>
     </div>
   </div>
 </section>

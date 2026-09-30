@@ -91,6 +91,18 @@ function Index() {
       });
     });
 
+    const planosTabs = document.getElementById("planosTabs");
+    planosTabs?.querySelectorAll<HTMLButtonElement>(".planos-tab").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        planosTabs.querySelectorAll(".planos-tab").forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+        const plan = tab.getAttribute("data-plan");
+        document.querySelectorAll<HTMLElement>("[data-plan-group]").forEach((group) => {
+          group.classList.toggle("active", group.getAttribute("data-plan-group") === plan);
+        });
+      });
+    });
+
     const field = document.getElementById("dotfield");
     const caption = document.getElementById("dotCaption");
     let fieldObserver: IntersectionObserver | undefined;

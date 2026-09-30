@@ -349,7 +349,19 @@ nav a:hover::after{ width:100%; }
    PLANOS
    ========================================================= */
 .planos{ background: var(--grey-100); }
-.planos-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap:22px; }
+.planos-tabs{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:38px; }
+.planos-tab{
+  font-family: var(--font-mono); font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase;
+  padding: 12px 22px; border:1px solid var(--line-on-white); color: var(--grey-700);
+  transition: background .3s, color .3s, border-color .3s, transform .35s var(--ease);
+}
+.planos-tab:hover{ transform: translateY(-2px); }
+.planos-tab.active{ background: var(--black); border-color: var(--black); color: var(--white); }
+.planos-group{ display:none; }
+.planos-group.active{ display:block; animation: planoFade .45s var(--ease); }
+@keyframes planoFade{ from{ opacity:0; transform: translateY(12px); } to{ opacity:1; transform: none; } }
+.planos-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:22px; }
+.planos-grid--2{ grid-template-columns: repeat(2, 1fr); }
 @media (max-width:1000px){ .planos-grid{ grid-template-columns: repeat(2, 1fr); } }
 @media (max-width:560px){ .planos-grid{ grid-template-columns: 1fr; } }
 .plano-card{
@@ -749,41 +761,73 @@ footer{ background: var(--black-soft); color:var(--grey-300); padding: 64px 0 30
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">Planos</div>
-      <h2>Mensalidades</h2>
-      <p>Valores de referência — o plano final é definido contigo na visita ao estúdio, conforme a frequência e o objetivo.</p>
+      <h2>Preços por sessão</h2>
+      <p>Escolhe o formato: individual, a dois ou outros serviços. Valores de referência — o plano final é definido contigo na visita ao estúdio.</p>
     </div>
-    <div class="planos-grid reveal">
-      <div class="plano-card">
-        <div class="plano-tag">Individual</div>
-        <h3>1x por semana</h3>
-        <div class="plano-preco"><b>80€</b><span>/ mês</span></div>
-        <p>Sessões 1:1 semanais, com plano ajustado e acompanhamento contínuo fora do estúdio.</p>
-        <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20o%20plano%20Individual%201x%20por%20semana." target="_blank" rel="noopener">Escolher</a>
+    <div class="planos-tabs reveal" id="planosTabs" role="tablist" aria-label="Tipos de plano">
+      <button class="planos-tab active" type="button" data-plan="individual">Individual</button>
+      <button class="planos-tab" type="button" data-plan="duo">Duo</button>
+      <button class="planos-tab" type="button" data-plan="outros">Outros</button>
+    </div>
+    <div class="planos-groups reveal">
+      <div class="planos-group active" data-plan-group="individual">
+        <div class="planos-grid planos-grid--2">
+          <div class="plano-card">
+            <div class="plano-tag">Sessão de 30 min</div>
+            <div class="plano-preco"><b>10€</b><span>/ sessão</span></div>
+            <p>Sessão 1:1 concentrada — aquecimento, treino e alongamento no tempo certo.</p>
+            <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20sess%C3%A3o%20individual%20de%2030%20minutos." target="_blank" rel="noopener">Escolher</a>
+          </div>
+          <div class="plano-card plano-card--destaque">
+            <span class="plano-rec">Recomendado</span>
+            <div class="plano-tag">Sessão de 60 min</div>
+            <div class="plano-preco"><b>15€</b><span>/ sessão</span></div>
+            <p>A sessão completa 1:1 — técnica, intensidade e progressão semana a semana, sempre com PT.</p>
+            <a class="btn btn-primary plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20sess%C3%A3o%20individual%20de%2060%20minutos." target="_blank" rel="noopener">Escolher</a>
+          </div>
+        </div>
       </div>
-      <div class="plano-card plano-card--destaque">
-        <div class="plano-tag">Individual</div>
-        <span class="plano-rec">Recomendado</span>
-        <h3>2x por semana</h3>
-        <div class="plano-preco"><b>140€</b><span>/ mês</span></div>
-        <p>O equilíbrio ideal entre frequência e progressão. O formato mais escolhido por quem treina no SAL.</p>
-        <a class="btn btn-primary plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20o%20plano%20Individual%202x%20por%20semana." target="_blank" rel="noopener">Escolher</a>
+      <div class="planos-group" data-plan-group="duo">
+        <div class="planos-grid planos-grid--2">
+          <div class="plano-card">
+            <div class="plano-tag">Sessão de 30 min</div>
+            <div class="plano-preco"><b>16€</b><span>/ sessão · para os dois</span></div>
+            <p>Treina com o teu par, familiar ou amigo — atenção individual em cada exercício, a dividir a sessão.</p>
+            <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20sess%C3%A3o%20duo%20de%2030%20minutos." target="_blank" rel="noopener">Escolher</a>
+          </div>
+          <div class="plano-card plano-card--destaque">
+            <span class="plano-rec">Recomendado</span>
+            <div class="plano-tag">Sessão de 60 min</div>
+            <div class="plano-preco"><b>24€</b><span>/ sessão · para os dois</span></div>
+            <p>A sessão completa a dois, com plano ajustado ao objetivo de cada um.</p>
+            <a class="btn btn-primary plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20sess%C3%A3o%20duo%20de%2060%20minutos." target="_blank" rel="noopener">Escolher</a>
+          </div>
+        </div>
       </div>
-      <div class="plano-card">
-        <div class="plano-tag">Individual</div>
-        <h3>3x por semana</h3>
-        <div class="plano-preco"><b>180€</b><span>/ mês</span></div>
-        <p>Para quem quer acelerar resultados com acompanhamento próximo e evolução semana a semana.</p>
-        <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20o%20plano%20Individual%203x%20por%20semana." target="_blank" rel="noopener">Escolher</a>
-      </div>
-      <div class="plano-card">
-        <div class="plano-tag">Treino a 2</div>
-        <h3>2x por semana</h3>
-        <div class="plano-preco"><b>100€</b><span>/ mês</span></div>
-        <p>Preço por pessoa. Treina com o teu par, mantendo atenção individual em cada exercício.</p>
-        <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20o%20plano%20Treino%20a%202." target="_blank" rel="noopener">Escolher</a>
+      <div class="planos-group" data-plan-group="outros">
+        <div class="planos-grid">
+          <div class="plano-card">
+            <div class="plano-tag">Taxa de inscrição</div>
+            <div class="plano-preco"><b>20€</b><span>pagamento único</span></div>
+            <p>Inclui a avaliação inicial e a definição do teu plano de treino.</p>
+            <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20taxa%20de%20inscri%C3%A7%C3%A3o." target="_blank" rel="noopener">Escolher</a>
+          </div>
+          <div class="plano-card">
+            <div class="plano-tag">Aula avulso</div>
+            <div class="plano-preco"><b>15€</b><span>/ sessão · 60 min</span></div>
+            <p>Uma sessão sem compromisso — ideal para experimentar o estúdio.</p>
+            <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20aula%20avulso." target="_blank" rel="noopener">Escolher</a>
+          </div>
+          <div class="plano-card">
+            <div class="plano-tag">Consulta de nutrição</div>
+            <div class="plano-preco"><b>35€</b><span>/ consulta</span></div>
+            <p>Avaliação alimentar e plano de nutrição alinhado com o teu treino e objetivo.</p>
+            <a class="btn btn-dark plano-btn" href="https://wa.me/351935261830?text=Ol%C3%A1%2C%20gostava%20de%20saber%20mais%20sobre%20a%20consulta%20de%20nutri%C3%A7%C3%A3o." target="_blank" rel="noopener">Escolher</a>
+          </div>
+        </div>
       </div>
     </div>
-    <p class="planos-nota reveal">Todos os planos incluem avaliação inicial, plano de treino e acompanhamento contínuo. Sem fidelização.</p>
+    <p class="planos-nota reveal">Valores de referência por sessão. Sessões de 30 ou 60 minutos, conforme o objetivo. Sem fidelização.</p>
   </div>
 </section>
 
